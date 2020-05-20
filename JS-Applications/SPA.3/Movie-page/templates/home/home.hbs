@@ -1,0 +1,26 @@
+{{> header}}
+<div id="myMovies">
+    <h1>My Movies</h1>
+    {{#if isCreator}}
+    
+    <div class="movies">
+        {{#each movie}}
+        <div class="movie">
+            <h2>Title: {{title}}</h2>
+            <img src={{imageUrl}}>
+            <p>Available Tickets: {{tickets}}</p>
+            <div class="btn-group">
+                <button><a href="#/edit">Edit</a></button>
+                <button><a href="#/delete">Delete</a></button>
+                <button><a href="#/buy">Buy Ticket</a></button>
+                <button><a href="#/details/{{_id}}">Details</a></button>
+            </div>
+            {{/each}}
+
+        </div>
+        {{else}}
+        <h2>404 movie not found!</h2>
+        {{/if}}
+
+    </div>
+    {{> footer}}
