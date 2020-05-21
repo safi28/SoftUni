@@ -1,6 +1,7 @@
 # Course work 
 # Config
-* npm npm install
+* npm  install
 # Run
 * npm run serve
+#
 * Made with Angular
