@@ -8,7 +8,7 @@
         class="text-movie-cont"
         :class="{ active: index == currentIndex }"
         v-for="(food, index) in foods"
-        :key="index"
+        :key="food.foodId"
         @click="setActive(food, index)"
       >
         <div v-if="isLoading">Loading...</div>
@@ -105,22 +105,6 @@ export default {
   },
   mixins: [foodMixin],
   methods: {
-    // async retrieveFood() {
-    //   this.isLoading = true;
-    //   await firebase
-    //     .firestore()
-    //     .collection("foods")
-    //     .onSnapshot(snap => {
-    //       snap.forEach(doc => {
-    //         var food = doc.data();
-    //         this.food = doc.data();
-    //         food.id = doc.id;
-    //         this.id = doc.id;
-    //         this.foods.push(food);
-    //       });
-    //       this.isLoading = false;
-    //     });
-    // },
     setActive(food, i) {
       this.currentIndex = i;
       this.currentFood = food;
@@ -137,9 +121,6 @@ export default {
 
       EventBus.$emit("DATA_PUBLISHED", playload);
     }
-  },
-  mounted() {
-    // this.retrieveFood();
   }
 };
 </script>

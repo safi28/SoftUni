@@ -5,7 +5,7 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(c => {
-  c.url = `${c.url}?auth=${localStorage.getItem("token")}`;
+  c.url = `${c.url}?auth=${localStorage.getItem("userId")}`;
   return c;
 });
 

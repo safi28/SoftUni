@@ -35,43 +35,6 @@
 			</div>
 		</section>
 
-		<section class="section section-grid">
-			<div class="rellax" data-rellax-speed="1" data-rellax-xs-speed="3">
-				<i class="fas fa-video fa-3x secondary-text"></i>
-				<h2>Watch<span class="secondary-text dot">.</span></h2>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore et
-						dicta consectetur incidunt omnis nam quis quidem nisi ipsa deserunt.
-				</p>
-			</div>
-			<div class="rellax" data-rellax-speed="4" data-rellax-xs-speed="3">
-				<i class="fas fa-users fa-3x secondary-text"></i>
-				<h2>Share<span class="secondary-text dot">.</span></h2>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore et
-						dicta consectetur incidunt omnis nam quis quidem nisi ipsa deserunt.
-				</p>
-			</div>
-			<div class="rellax" data-rellax-speed="7" data-rellax-xs-speed="3">
-				<i class="fas fa-book fa-3x secondary-text"></i>
-				<h2>Learn<span class="secondary-text dot">.</span></h2>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore et
-						dicta consectetur incidunt omnis nam quis quidem nisi ipsa deserunt.
-				</p>
-			</div>
-    </section>
-    
-    <footer class="footer">
-      <ul>
-        <li><a href="#">Faq</a></li>
-        <li><a href="#">Terms of Use</a></li>
-        <li><a href="#">Privacy Notice</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">About Us</a></li>
-      </ul>
-    
-    </footer>
     </div>
   </div>
 </template>

@@ -1,66 +1,73 @@
 <template>
-  <v-container>
-    <h1>Login form</h1>
+  <div class="app">
+    <HeaderUnL></HeaderUnL>
+    <h1></h1>
+    <v-container>
+      <v-layout row v-if="error">
+        <v-flex xs12 sm6 offset-sm3>
+          <app-alert @dismissed="onDismissed" :text="error.message"></app-alert>
+        </v-flex>
+      </v-layout>
 
-    <v-layout row v-if="error">
-      <v-flex xs12 sm6 offset-sm3>
-        <app-alert @dismissed="onDismissed" :text="error.message"></app-alert>
-      </v-flex>
-    </v-layout>
-
-    <v-layout row>
-      <v-flex class="container">
-        <v-card>
-          <v-card-text>
-            <v-container>
-              <form @submit.prevent="onSignin">
-                <v-layout row>
-                  <v-flex xs12>
-                    <v-text-field
-                      name="email"
-                      label="Email"
-                      id="email"
-                      v-model="email"
-                      type="email"
-                      required
-                    ></v-text-field>
-                  </v-flex>
-                </v-layout>
-                <v-layout row>
-                  <v-flex xs24>
-                    <v-text-field
-                      name="password"
-                      label="Password"
-                      id="password"
-                      v-model="password"
-                      type="password"
-                      required
-                    ></v-text-field>
-                  </v-flex>
-                </v-layout>
-                <v-layout row>
-                  <v-flex xs12>
-                    <div class="text-xs-center">
-                      <v-btn rounded type="submit" :disabled="loading" :loading="loading">
-                        Sign in
-                        <span slot="loader" class="custom-loader">
-                          <v-icon light>Loading...</v-icon>
-                        </span>
-                      </v-btn>
-                    </div>
-                    <br />Don't have an account?
-                    <br />
-                    <br />
-                    <router-link :to="{ name: 'Signup'}">Register</router-link>
-                  </v-flex>
-                </v-layout>
-              </form>
-            </v-container>
-          </v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
-  </v-container>
+      <v-layout row>
+        <v-flex class="container">
+          <v-card>
+            <v-card-text>
+              <v-container>
+                <form @submit.prevent="onSignin">
+                  <v-layout row>
+                    <v-flex xs12>
+                      <v-text-field
+                        name="email"
+                        label="Email"
+                        id="email"
+                        v-model="email"
+                        type="email"
+                        required
+                      ></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                  <v-layout row>
+                    <v-flex xs24>
+                      <v-text-field
+                        name="password"
+                        label="Password"
+                        id="password"
+                        v-model="password"
+                        type="password"
+                        required
+                      ></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                  <v-layout row>
+                    <v-flex xs12>
+                      <div class="text-xs-center">
+                        <v-btn rounded type="submit" :disabled="loading" :loading="loading">
+                          Sign in
+                          <span slot="loader" class="custom-loader">
+                            <v-icon light>Loading...</v-icon>
+                          </span>
+                        </v-btn>
+                      </div>
+                      <br />Don't have an account?
+                      <br />
+                      <br />
+                      <router-link :to="{ name: 'Signup'}">Register</router-link>
+                      <br />
+                      <br />
+                      <router-link :to="{ name: 'publicHome'}">Home</router-link>
+                    </v-flex>
+                  </v-layout>
+               
+                </form>
+              </v-container>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
+    <h1></h1>
+  </div>
 </template>
 
 <script>
@@ -94,7 +101,7 @@ export default {
           password: this.password
         })
         .then(el => {
-           this.$router.replace({ name: "publicHome" }).catch(err => {
+          this.$router.replace({ name: "publicHome" }).catch(err => {
             console.log(err);
           });
         })
@@ -119,10 +126,17 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
 .container {
-  /* left: 60px; */
   background-image: url("https://images.pexels.com/photos/163143/sackcloth-sackcloth-textured-laptop-ipad-163143.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-size: cover;
+  padding: 6px;
+  left: 160%;
+}
+h1 {
+  left: 20%;
+  padding: 10px;
+  font-style: italic;
 }
 h4 {
   font-size: 24px;
@@ -139,7 +153,8 @@ label {
 }
 
 form {
-  padding: 90px 50px;
+  margin: 10px;
+  padding: 90px 60px;
   background: #fefefe;
   display: -webkit-box;
   display: flex;

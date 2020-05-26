@@ -197,7 +197,6 @@ export default {
     }
   },
   mounted() {
-    // this.retrieveFood();
     EventBus.$on("DATA_PUBLISHED", playload => {
       this.updateData(playload);
     });
