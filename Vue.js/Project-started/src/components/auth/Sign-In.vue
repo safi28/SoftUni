@@ -58,7 +58,6 @@
                       <router-link :to="{ name: 'publicHome'}">Home</router-link>
                     </v-flex>
                   </v-layout>
-               
                 </form>
               </v-container>
             </v-card-text>
@@ -101,6 +100,8 @@ export default {
           password: this.password
         })
         .then(el => {
+          console.log(el);
+
           this.$router.replace({ name: "publicHome" }).catch(err => {
             console.log(err);
           });
@@ -126,7 +127,6 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
 .container {
   background-image: url("https://images.pexels.com/photos/163143/sackcloth-sackcloth-textured-laptop-ipad-163143.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-size: cover;

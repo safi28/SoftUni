@@ -8,9 +8,6 @@ import Vuesax from "vuesax";
 import VueNoty from "vuejs-noty";
 import "firebase/firestore";
 const AlertCmp = () => import("./components/auth/Alert.vue");
-import { ValidationProvider } from "vee-validate";
-
-Vue.component("ValidationProvider", ValidationProvider);
 Vue.component("app-alert", AlertCmp);
 
 Vue.config.productionTip = false;
@@ -32,17 +29,17 @@ const configOptions = {
   projectId: "vue-project-93965",
   storageBucket: "vue-project-93965.appspot.com",
   messagingSenderId: "630574009533",
-  appId: "1:630574009533:web:3e0a22134673233be53bd4"
+  appId: "1:630574009533:web:3e0a22134673233be53bd4",
 };
 firebase.initializeApp(configOptions);
 
 firebase.getCurrentUser = () => {
   return new Promise((resolve, reject) => {
-      const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-          unsubscribe();
-          resolve(user);
-      }, reject);
-  })
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      unsubscribe();
+      resolve(user);
+    }, reject);
+  });
 };
 Vue.prototype.$firebase = firebase;
 
@@ -52,5 +49,5 @@ new Vue({
   vuetify,
   Vuesax,
   VueNoty,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");

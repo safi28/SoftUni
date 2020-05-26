@@ -136,7 +136,7 @@ export default {
       active: null
     };
   },
-  mixins: [foodMixin],
+  // mixins: [foodMixin],
   watch: {
     dialog(val) {
       val || this.close();
@@ -146,16 +146,6 @@ export default {
     this.retrieveFood();
   },
   methods: {
-    // retrieveFood() {
-    //   firebase
-    //     .firestore()
-    //     .collection("foods")
-    //     .doc(this.$route.params.id)
-    //     .get()
-    //     .then(el => {
-    //       this.food = el.data();
-    //     });
-    // },
     setActive(food, i) {
       this.currentIndex = i;
       this.currentFood = food;
@@ -194,6 +184,15 @@ export default {
         .then(el => {
           this.$router.replace({ name: "Food" });
         });
+    },
+    async retrieveFood() {
+      var todosRef = await firebase
+        .firestore()
+        .collection("foods")
+        .doc(this.$route.params.id);
+      todosRef.onSnapshot(snap => {
+        this.food = snap.data()
+      });
     }
   },
   mounted() {

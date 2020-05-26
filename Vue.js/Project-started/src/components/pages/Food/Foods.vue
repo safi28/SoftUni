@@ -7,9 +7,9 @@
       <v-col
         class="text-movie-cont"
         :class="{ active: index == currentIndex }"
-        v-for="(food, index) in foods"
-        :key="food.foodId"
-        @click="setActive(food, index)"
+        v-for="food in foods"
+        :key="food.id"
+        @click="setActive(food.foodId)"
       >
         <div v-if="isLoading">Loading...</div>
         <div class="container">
@@ -68,7 +68,7 @@ import Noty from "noty";
 import * as firebase from "firebase/app";
 import mainMenu from "@/components/core/Shared/Main.vue";
 import EventBus from "../../../eventBus";
-import foodMixin from '@/mixins/food-mixin'
+import foodMixin from "@/mixins/food-mixin";
 export default {
   name: "Foods",
   vuetify: new Vuetify(),
@@ -100,16 +100,25 @@ export default {
       isLoading: false
     };
   },
-  created(){
-    this.retrieveFood()
+  created() {
+    this.retrieveFood();
   },
-  mixins: [foodMixin],
   methods: {
     setActive(food, i) {
       this.currentIndex = i;
       this.currentFood = food;
     },
-
+    async retrieveFood() {
+      var todosRef = await firebase.firestore().collection("foods");
+      todosRef.onSnapshot(snap => {
+        snap.forEach(doc => {
+          var todo = doc.data();
+          todo.id = doc.id;
+          this.foods.push(todo);
+        });
+      });
+    
+    },
     sendData() {
       const playload = {
         name: this.food.name,
@@ -118,10 +127,11 @@ export default {
         details: this.food.details,
         img: this.food.img
       };
-
       EventBus.$emit("DATA_PUBLISHED", playload);
     }
-  }
+  },
+  // mixins: [foodMixin],
+  
 };
 </script>
 
