@@ -17,7 +17,7 @@ const routes: Routes = [
   {
     path: "dashboard",
     component: LoggedHomeComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   { path: "guide", component: GuideComponent },
   {
