@@ -1,5 +1,5 @@
 # Deployed app
-* https://travellers-fdc03.web.app/home
+* https://travellers-fdc03.web.app/
 # Project setup locally
 * npm install   
 # Compiles
