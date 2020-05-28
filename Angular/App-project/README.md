@@ -1,7 +1,6 @@
-# Course work 
-# Config
-* npm  install
-# Run
+# Deployed app
+* https://travellers-fdc03.web.app/home
+# Project setup locally
+* npm install   
+# Compiles
 * npm run serve
-#
-* Made with Angular

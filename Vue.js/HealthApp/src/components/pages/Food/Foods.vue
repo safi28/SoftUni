@@ -68,7 +68,6 @@ import Noty from "noty";
 import * as firebase from "firebase/app";
 import mainMenu from "@/components/core/Shared/Main.vue";
 import EventBus from "../../../eventBus";
-import foodMixin from "@/mixins/food-mixin";
 export default {
   name: "Foods",
   vuetify: new Vuetify(),
@@ -129,9 +128,7 @@ export default {
       };
       EventBus.$emit("DATA_PUBLISHED", playload);
     }
-  },
-  // mixins: [foodMixin],
-  
+  },  
 };
 </script>
 
