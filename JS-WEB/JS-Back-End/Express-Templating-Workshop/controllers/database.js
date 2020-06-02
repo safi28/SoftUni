@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const dbFileName = path.join(__dirname, "..", "config/database.json");
+const dbFileName = path.normalize(__dirname, "/config/database.json");
 
 const saveCube = (cube, callback) => {
   getCubes((cubes) => {
@@ -12,6 +13,10 @@ const saveCube = (cube, callback) => {
       }
       console.log("New cube is added!");
       callback();
+      if (error) throw error;
+      console.log("New cube is added!");
+      callback(cube);
+
     });
   });
 };
@@ -19,6 +24,7 @@ const saveCube = (cube, callback) => {
 const getCube = (id, callback) => {
   getCubes((cb) => {
     const cube = cb.filter((c) => c.id === id)[0];
+    const cube = cb.filter((c) => c.id === id);
     callback(cube);
   });
 };
@@ -27,10 +33,12 @@ const getCubes = (callback) => {
     if (err) {
       throw err;
     }
+    if (err) throw err;
     const cubes = JSON.parse(data);
     callback(cubes);
   });
 };
+
 
 module.exports = {
   getCubes,
@@ -46,4 +54,5 @@ module.exports = {
   getCubes,
   saveCube,
   getCube
+
 };
