@@ -20,7 +20,7 @@
 ![Screenshot](screenshot5.png)
 # Test
 ![Screenshot](screenshot4.png)
-# Technologies
+# Tools and framework
 * VueJS, Vuex, Axios, Vuetify
 # Aim :low_brightness:
 * The app is abount tracking your daily movements, food habits and todo tasks
