@@ -32,4 +32,5 @@ module.exports = {
   getCubes,
   saveCube,
   getCube,
-};
+
+ };
