@@ -32,14 +32,12 @@ const getCubes = (callback) => {
   });
 };
 
-<<<<<<< Updated upstream
 module.exports = {
   getCubes,
   saveCube,
   getCube,
 
  };
-=======
 // const findCube = (fn) => {
 //   return Promise.resolve(getCubes((cb) => cb.filter(fn)));
 // };
@@ -49,4 +47,3 @@ module.exports = {
   saveCube,
   getCube
 };
->>>>>>> Stashed changes

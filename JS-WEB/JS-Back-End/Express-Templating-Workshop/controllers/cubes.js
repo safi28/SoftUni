@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 const fs = require("fs");
 const { getCube } = require("./database");
 
@@ -7,7 +6,6 @@ const getAllCubes = (callback) => {
     callback(cubes);
   });
 };
-=======
 const { getCubes } = require("./database");
 
 const getAllCubes = (callback) => {
@@ -17,4 +15,3 @@ const getAllCubes = (callback) => {
 };
 
 module.exports = { getAllCubes };
->>>>>>> Stashed changes
