@@ -1,32 +1,16 @@
 const { accessoryModel, cubeModel } = require("../models");
 
-function attachPost(req, res, next) {
-  const { id } = req.params;
-  const { accessory: accessoryId } = req.body;
-  Promise.all([
-    cubeModel.updateOne({ _id: id }, { $push: { accessories: accessoryId } }),
-    accessoryModel.updateOne({ _id: accessoryId }, { $push: { cubes: id } }),
-  ])
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(next);
-}
+const getAccessories = async () => {
+  const accessories = await accessoryModel.find().lean();
+  return accessories;
+};
 
-function attachGet(req, res, next) {
-  const { id: cubeId } = req.params;
-  cubeModel
-    .findById(cubeId)
-    .then((cube) =>
-      Promise.all([cube, accessoryModel.find({ cubes: { $nin: cubeId } })])
-    )
-    .then(([cube, filterAccessories]) => {
-      res.render("attachAccessory.hbs", {
-        cube,
-        accessories: filterAccessories.length > 0 ? filterAccessories : null,
-      });
-    })
-    .catch(next);
-}
+const postAccessories = async (id, accessoryId) => {
+  await cubeModel.findByIdAndUpdate(id, {
+    $addToSet: {
+      accessories: accessoryId
+    }
+  })
+};
 
-module.exports = { attachGet, attachPost };
+module.exports = { getAccessories, postAccessories };
