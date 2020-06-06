@@ -9,8 +9,8 @@ dbConnector()
     require("./config/express")(app);
     app.use("/", indexRouter);
     app.listen(
-      config.port,
-      console.log(`Listening on port ${config.port}! Now its up to you...`)
+      config.development.port,
+      console.log(`Listening on port ${config.development.port}! Now its up to you...`)
     );
   })
   .catch(console.error);
